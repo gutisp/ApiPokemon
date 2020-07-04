@@ -1,0 +1,69 @@
+
+/*
+.container{
+    width: 80%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+.card{
+    width: 200px;
+    height: 25vh;
+    background-color: rgb(230, 230, 230);
+    text-align: center;
+    margin: 2%;
+}
+
+.imgCard{
+    background-color: rgb(200, 200, 200);
+    height: 65%;
+}
+
+.pagina{
+    display: flex;
+    flex-direction: row;
+    margin-top: 3%;
+}
+.purchase{
+    background-color: green;
+    line-height: 2rem;
+    font-size: 1.3rem;
+}
+.icons{
+    cursor: pointer;
+}
+
+  @media screen and (max-width: 780px) {
+    .container{
+        width: 100%;
+    }
+    .pagina{
+        flex-direction: column;
+    }
+    .card{
+        width: 300px;
+        margin: 5%;
+        font-size: 2rem;
+    }
+    .purchase{
+        line-height: 3rem;
+        font-size: 2rem;
+    }
+  }
+  @media screen and (max-width: 700px) {
+    .card{
+        width: 250px;
+        margin-bottom: 10%;
+    }
+    .card{
+        font-size: 1.2rem;
+    }
+    .purchase{
+        line-height: 2rem;
+        font-size: 1.5rem;
+    }
+    
+  }
+
+  */
