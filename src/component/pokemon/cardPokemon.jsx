@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-
+import './cardPokemon.css'
 
 import Cart from '../cart/cart'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPlusCircle } from '@fortawesome/free-solid-svg-icons'
+
 
 export default props => {
     const [item, setItem,] = useState([])
@@ -31,30 +30,16 @@ export default props => {
         }
 
         return (
-            <>
-            <div className='card' key={todo.name}>
-                <label>{todo.name}</label><br />
-                <div className='imgCard'>
-                    <img src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${url}.png`} alt="" />
-                </div>
-
-                <label> R$ {preco}</label><br />
-                <div className='purchase'><label>Adicionar  <FontAwesomeIcon className='icons' onClick={purchase} icon={faPlusCircle} /></label></div>
-
-            </div>
-
-            <div className="container">
-                <div className="card">
-                    <img src={`https://pokeres.bastionbot.org/images/pokemon/${url}.png`} className="card-img-top" alt="..." />
-                    <div className="card-body">
-                        <h5 className="card-title">{todo.name}</h5>
-                        <p className="card-text">R$ {preco}</p>
-                        <a href="#" className="btn btn-primary">Adicionar</a>
-                    </div>
+            <div key={todo.name} className="card m-1">
+                <img src={`https://pokeres.bastionbot.org/images/pokemon/${url}.png`} className="card-img-top" alt="pokemons" />
+                <div className="card-body">
+                
+                
+                    <h5 className="card-title">{todo.name}</h5>
+                    <p className="card-text">R$ {preco}</p>
+                    <button className="btn btn-primary" onClick={purchase} >Adicionar</button>
                 </div>
             </div>
-            </>
-    
         )
 
 
@@ -63,11 +48,15 @@ export default props => {
 
 
     return (
-        <div className='pagina'>
-            <div className='container'>{vamos}
+        <div className='container'>
+            <div className="row">
+                <div className="col-xl-9 col-lg-9 col-md-8 poker">
+                    {vamos}
+                </div>
+                <div className="col-xl-3 col-lg-3 col-md-4">
+                <Cart cart={item} total={total} />
+                </div>
             </div>
-            <Cart cart={item} total={total} />
-
         </div>
     )
 

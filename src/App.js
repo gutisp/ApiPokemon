@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+
 
 
 import ListPokemon from './component/pokemon/listPokemon'
