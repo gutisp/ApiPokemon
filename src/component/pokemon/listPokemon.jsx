@@ -4,7 +4,7 @@ import axios from 'axios';
 import CardPokemon from './cardPokemon'
 import Button from '../button/button'
 import Search from '../search/Search'
-import If from '../../operacao/if'
+
 
 
 
@@ -38,15 +38,11 @@ export default class App extends Component {
         for (let i = 0; i < (res.data['results']).length; i++) {
             preco.push(Math.floor(Math.random() * (100 - 10)) + 10)
         }
-
         this.setState({
             pokemon: res.data['results'],
             precos: preco
         })
-
-
     }
-
     async previousPage() {
         await this.setState({
             offset: this.state.offset - 20
@@ -70,33 +66,29 @@ export default class App extends Component {
         await this.setState({
             name_typed: e.target.value
         })
-
     }
     async onClick() {
         const res = await axios.get(`https://pokeapi.co/api/v2/pokemon/${this.state.name_typed}`)
         this.setState({
             pesquisado: [{ name: res.data.name, url: res.data.id, hidden: true }]
         })
-
     }
     async voltar() {
-        
        await this.setState({
             pesquisado: [{ name: '', url: 0, hidden: false }]
         })
     }
 
     render() {
-        const { pesquisado, name_typed, preco, precos, pokemon, offset } = this.state
-        console.log(offset)
+        const { pesquisado, name_typed, preco, precos, pokemon} = this.state
         return (
-            <div>
+            <div className='container'>
                 <Search onClick={this.onClick} onChange={this.onChange} value={name_typed} />
                 <CardPokemon pokemon={pokemon} precos={precos} searchName={pesquisado} preco={preco} />
                 {pesquisado[0].hidden ? <Button name='voltar' page={this.voltar} /> :
                     <div>
-                        <Button name='proxima' page={this.nextPage} />
                         <Button name='anterior' page={this.previousPage} />
+                        <Button name='proxima' page={this.nextPage} />
                     </div>
                 }
             </div>
